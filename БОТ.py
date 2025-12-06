@@ -25,7 +25,7 @@ from telebot import types
 #now_userID = ''
 
 #ставится первым
-bot = telebot.TeleBot('8209280920:AAGvxhwAz0feOSS4ymee49lqvHR6xT_9fUw')
+bot = telebot.TeleBot('Токен бота')
 @bot.message_handler(commands=['start'])
 
 def main(message):
@@ -48,3 +48,4 @@ def main(message):
 
 
 bot.infinity_polling()
+
