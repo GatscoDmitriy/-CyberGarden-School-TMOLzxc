@@ -123,8 +123,8 @@ async def admin_r(message):
     f.closed
     await bot.send_message(message.chat.id, 'Введите ключ админа.')
     @bot.message_handler(content_types=['text'])
-    async def admin_pass(message1):
-        if message1.text == admin_password:
+    async def admin_pass(message11):
+        if message11.text == admin_password:
             await bot.send_message(message.chat.id, 'Ваш статус админа успешно подтверждён')
             global admin_status
             admin_status = True
@@ -426,4 +426,5 @@ async def add_user(message):
 
         
 asyncio.run(bot.polling())
+
 
