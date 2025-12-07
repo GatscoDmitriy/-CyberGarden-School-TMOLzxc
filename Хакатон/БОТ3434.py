@@ -149,7 +149,7 @@ async def start_(message):
 @bot.message_handler(commands=['make_order'])
 
 async def main(message):
-    if local.time.tm_hour>=15:
+    if local_time.tm_hour>=15:
         bot.stop_polling #когда у вас дедлайн,заносите время дедлайна в if
     if not (message.from_user.username in user_check_string):
         IDc = message.chat.id
@@ -426,3 +426,4 @@ async def add_user(message):
 
         
 asyncio.run(bot.polling())
+
