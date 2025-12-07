@@ -43,45 +43,7 @@ df['Время']=ExVr
 df['Цена']=ExCost
 df.to_excel('report.xlsx', index=False)
 
-#Вытаскивание позиций меню
 
-#дефка для вывода перечня меню определенного типа
-#def(название ресторана, тип позиции меню) имена как в таблице
-def menu_1 (restname, columnname): #str
-    tab = pd.read_excel('menu.xlsx', sheet_name=restname)
-    stolb = tab[columnname].tolist()
-    return stolb
-
-#обозначения:t-перечисление товара, c-цены
-
-siz_sup_t=menu_1('сицилия','суп')[::2]
-#siz_sup_c=menu_1('сицилия','суп')[1::2]
-siz_sal_t=menu_1('сицилия','салат')[::2]
-#siz_sal_c=menu_1('сицилия','салат')[1::2]
-#siz_osn_t=menu_1('сицилия','основное')[::2]
-#siz_osn_c=menu_1('сицилия','основное')[1::2]
-#osk_sup_t=menu_1('осака','суп')[::2]
-'''osk_sup_c=menu_1('осака','суп')[1::2]
-osk_pas_t=menu_1('осака','паста, лапша, рис')[::2]
-osk_pas_c=menu_1('осака','паста, лапша, рис')[1::2]
-osk_pok_t=menu_1('осака','поке, боулы')[::2]
-osk_pok_c=menu_1('осака','поке, боулы')[1::2]
-min_sus_t=menu_1('мята','суши, роллы')[::2]
-min_sus_c=menu_1('мята','суши, роллы')[1::2]
-min_piz_t=menu_1('мята','пиццы')[::2]
-min_piz_c=menu_1('мята','пиццы')[1::2]
-min_ssp_t=menu_1('мята','суши с пиццей')[::2]
-min_ssp_c=menu_1('мята','суши с пиццей')[1::2]
-min_lan_t=menu_1('мята','ланч')[::2]
-min_lan_c=menu_1('мята','ланч')[1::2]
-mib_lan_t=menu_1('мясник и бык','ланч')[::2]
-mib_lan_c=menu_1('мясник и бык','ланч')[1::2]
-#проверОчка'''
-'''
-supbl=menu_1('','')[::2]
-supcena=menu_1('','')[1::2]
-print(supbl,supcena)
-'''
 
 check_f = open('User_check.txt', 'r')
 user_check_string = check_f.readline()
@@ -149,7 +111,7 @@ async def start_(message):
 @bot.message_handler(commands=['make_order'])
 
 async def main(message):
-    if local_time.tm_hour>=15:
+    if local_time.tm_hour>=12:
         bot.stop_polling #когда у вас дедлайн,заносите время дедлайна в if
     if not (message.from_user.username in user_check_string):
         IDc = message.chat.id
@@ -426,5 +388,6 @@ async def add_user(message):
 
         
 asyncio.run(bot.polling())
+
 
 
